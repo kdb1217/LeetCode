@@ -6,32 +6,25 @@ class Solution:
         
         if len(piles) == h:
             return answer
-        else:
-            start, end = 1, answer
-            pivot = (start +end) // 2
+
+        start, end = 1, answer
+
+        while start <= end:
+            pivot = (start + end ) // 2
             cnt = 0
-            
-            while start <= end :
-                cnt = 0
-                for i in piles:
-                    if i % pivot != 0:
-                        cnt += i // pivot + 1
-                    else:
-                        cnt += i // pivot
 
-                if cnt > h:
-                    start = pivot + 1
-                    pivot = (start + end) // 2
+            for i in piles:
+                if i % pivot == 0:
+                    cnt += i // pivot
                 else:
-                    answer = min(pivot, answer)
-                    end = pivot - 1
-                    pivot = (start + end) // 2
-                    
+                    cnt += (i // pivot) + 1
 
-            return answer
+            if cnt > h:
+                start = pivot + 1
+            else:
+                answer = min(pivot, answer)
+                end = pivot - 1
 
-                
-
-
+        return answer
 
         
