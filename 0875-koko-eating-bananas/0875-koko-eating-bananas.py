@@ -1,3 +1,4 @@
+from math import ceil
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         piles.sort()
@@ -11,13 +12,7 @@ class Solution:
 
         while start <= end:
             pivot = (start + end ) // 2
-            cnt = 0
-
-            for i in piles:
-                if i % pivot == 0:
-                    cnt += i // pivot
-                else:
-                    cnt += (i // pivot) + 1
+            cnt = sum(ceil(p / pivot) for p in piles)
 
             if cnt > h:
                 start = pivot + 1
