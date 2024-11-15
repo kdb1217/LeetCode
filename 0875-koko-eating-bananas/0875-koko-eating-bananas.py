@@ -1,9 +1,8 @@
 from math import ceil
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        piles.sort()
         # output의 어떠한 경우에도 최댓값은 무조건 정렬된 배열의 맨 마지막값 못넘음
-        answer = piles[-1]
+        answer = max(piles)
         
         if len(piles) == h:
             return answer
