@@ -7,5 +7,5 @@ class Solution:
             if tmp not in answerDict:
                 answerDict[tmp] = [i]
             else:
-                answerDict[tmp] += [i]
+                answerDict[tmp].append(i)
         return sorted(list(answerDict.values()))
