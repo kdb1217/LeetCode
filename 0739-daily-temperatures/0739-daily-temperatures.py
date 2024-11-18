@@ -3,7 +3,7 @@ class Solution:
         # 완탐 x 10 ^ 10이기 때문에 너무 오래걸림 
         stack = []
         result = [0] * len(temperatures)
-        print(result)
+
         for i in range(len(temperatures) - 1, -1, -1):
             while stack and temperatures[i] >= temperatures[stack[-1]]:
                 stack.pop()
