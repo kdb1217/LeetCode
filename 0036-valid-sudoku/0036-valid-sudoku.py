@@ -13,8 +13,22 @@ class Solution:
                             return False
                         else:
                             boardchecker.add(board[i][j])
-            if len(boardchecker) == 0:
-                return False
+
+        for i in range(9):
+            horizonChecker = set()
+            verticalChecker = set()
+            for j in range(9):
+                if board[i][j].isdigit():
+                    if board[i][j] in horizonChecker:
+                        return False
+                    else:
+                        horizonChecker.add(board[i][j])
+                
+                if board[j][i].isdigit():
+                    if board[j][i] in verticalChecker:
+                        return False
+                    else:
+                        verticalChecker.add(board[j][i])
         return True
 
 
